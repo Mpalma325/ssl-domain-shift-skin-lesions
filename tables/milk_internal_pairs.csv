@@ -1,0 +1,5 @@
+modality,partitions,pairs
+Dermoscopic,Training and Validation,1
+Dermoscopic,Validation and Test,1
+Dermoscopic,Both in test,1
+Clinical,Both in training,5

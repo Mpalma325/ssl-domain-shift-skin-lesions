@@ -1,0 +1,10 @@
+diagnosis_3,lesions,images,class
+"Squamous cell carcinoma, NOS",137,190,akiec
+Solar or actinic keratosis,81,116,akiec
+Basal cell carcinoma,234,333,bcc
+Pigmented benign keratosis,625,883,bkl
+"Melanoma, NOS",394,635,mel
+Nevus,5004,5781,nv
+Vascular,82,106,Excluded
+Dermatofibroma,54,76,Excluded
+Total retained,6475,7938,

@@ -1,0 +1,6 @@
+init,target,k,method,seed,student_best_epoch,teacher_best_epoch,student_ba_val,teacher_ba_val_best,student_ba,student_ba_full_test,teacher_ba_full_test_at_student_epoch,teacher_ba_full_test_at_teacher_epoch
+ham,milk10k,16,mean_teacher,0,33,44,48.5904,49.718,38.6971,39.4292,38.6792,39.6272
+ham,milk10k,16,mean_teacher,1,6,8,55.1312,55.75,46.061,46.8911,46.3394,46.8712
+ham,milk10k,16,mean_teacher,2,13,6,54.616,54.799,46.3535,47.2092,48.296,50.4546
+ham,milk10k,16,mean_teacher,3,6,4,54.8827,53.634,53.5732,54.2822,54.6514,54.0795
+ham,milk10k,16,mean_teacher,4,13,15,51.1862,49.25,45.976,46.4314,44.3989,46.9677

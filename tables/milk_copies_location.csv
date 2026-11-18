@@ -1,0 +1,5 @@
+partition,AKIEC,BCC,BKL,MEL,NV,Total
+Training,0,8,8,17,51,84
+Validation,1,1,0,1,8,11
+Test,1,2,4,1,18,26
+Total,2,11,12,19,77,121

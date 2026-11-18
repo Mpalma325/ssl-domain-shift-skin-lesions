@@ -1,0 +1,210 @@
+row,column,value,excludes_zero
+Π-Model,bcn20000|imagenet|k16,4.426661287832189,True
+Π-Model,bcn20000|imagenet|k32,2.7829300817574776,True
+Π-Model,bcn20000|imagenet|k100,2.5574674785804463,True
+Π-Model,bcn20000|ham|k16,4.710707714364244,True
+Π-Model,bcn20000|ham|k32,1.9072319023135151,True
+Π-Model,bcn20000|ham|k100,3.19374750914173,True
+Π-Model,milk10k|imagenet|k16,-0.24741193284727672,False
+Π-Model,milk10k|imagenet|k32,-0.19604512852937148,False
+Π-Model,milk10k|imagenet|k100,-0.047168033299743686,False
+Π-Model,milk10k|ham|k16,0.5707185131032133,False
+Π-Model,milk10k|ham|k32,-0.3391314404641889,False
+Π-Model,milk10k|ham|k100,-0.5948529766256329,False
+Π-Model,milk10k_clinico|imagenet|k16,1.617380938267705,False
+Π-Model,milk10k_clinico|imagenet|k32,2.6465483524661932,False
+Π-Model,milk10k_clinico|imagenet|k100,1.5492244242029074,False
+Π-Model,milk10k_clinico|ham|k16,1.2800438903268685,False
+Π-Model,milk10k_clinico|ham|k32,4.097278351873436,True
+Π-Model,milk10k_clinico|ham|k100,3.2322378402587093,True
+Π-Model,mean,1.841531598484579,False
+Mean Teacher,bcn20000|imagenet|k16,4.741651792589268,True
+Mean Teacher,bcn20000|imagenet|k32,4.006865907290217,True
+Mean Teacher,bcn20000|imagenet|k100,1.9706542079810518,False
+Mean Teacher,bcn20000|ham|k16,4.918401532413282,True
+Mean Teacher,bcn20000|ham|k32,4.254861186202712,True
+Mean Teacher,bcn20000|ham|k100,1.9202330351175618,False
+Mean Teacher,milk10k|imagenet|k16,-0.08615560517147144,False
+Mean Teacher,milk10k|imagenet|k32,0.90443790216883,False
+Mean Teacher,milk10k|imagenet|k100,-4.71687277469325,False
+Mean Teacher,milk10k|ham|k16,0.10148997912179851,False
+Mean Teacher,milk10k|ham|k32,-1.1801836491408295,False
+Mean Teacher,milk10k|ham|k100,-2.9187293934783582,False
+Mean Teacher,milk10k_clinico|imagenet|k16,2.4516998017558764,True
+Mean Teacher,milk10k_clinico|imagenet|k32,2.7183003431401573,False
+Mean Teacher,milk10k_clinico|imagenet|k100,2.4979077275690997,False
+Mean Teacher,milk10k_clinico|ham|k16,2.322936489432466,False
+Mean Teacher,milk10k_clinico|ham|k32,3.4441778532993466,True
+Mean Teacher,milk10k_clinico|ham|k100,3.210759821646151,True
+Mean Teacher,mean,1.6979131198468838,False
+Pseudo-Label,bcn20000|imagenet|k16,2.510064549969381,False
+Pseudo-Label,bcn20000|imagenet|k32,2.2214731635203124,True
+Pseudo-Label,bcn20000|imagenet|k100,2.0549975132754397,True
+Pseudo-Label,bcn20000|ham|k16,2.5911783949213216,False
+Pseudo-Label,bcn20000|ham|k32,2.8704289854077985,True
+Pseudo-Label,bcn20000|ham|k100,1.0991757722358657,True
+Pseudo-Label,milk10k|imagenet|k16,-1.760598394288462,False
+Pseudo-Label,milk10k|imagenet|k32,0.9451038443553117,False
+Pseudo-Label,milk10k|imagenet|k100,-0.17242270125730244,False
+Pseudo-Label,milk10k|ham|k16,-1.1058980327069847,False
+Pseudo-Label,milk10k|ham|k32,0.09417373034847998,False
+Pseudo-Label,milk10k|ham|k100,1.4147240718420904,False
+Pseudo-Label,milk10k_clinico|imagenet|k16,0.9838664848880058,False
+Pseudo-Label,milk10k_clinico|imagenet|k32,0.8528797297030308,False
+Pseudo-Label,milk10k_clinico|imagenet|k100,1.834934487232681,False
+Pseudo-Label,milk10k_clinico|ham|k16,0.8207029038483029,False
+Pseudo-Label,milk10k_clinico|ham|k32,2.8858379403686967,True
+Pseudo-Label,milk10k_clinico|ham|k100,0.5907679094794958,False
+Pseudo-Label,mean,1.15174390850797,False
+Noisy Student,bcn20000|imagenet|k16,2.273707397097719,True
+Noisy Student,bcn20000|imagenet|k32,2.1796475106644406,True
+Noisy Student,bcn20000|imagenet|k100,3.1184733779417626,True
+Noisy Student,bcn20000|ham|k16,2.6117181524366457,True
+Noisy Student,bcn20000|ham|k32,1.3797468039388363,True
+Noisy Student,bcn20000|ham|k100,2.930423909921173,True
+Noisy Student,milk10k|imagenet|k16,0.5779447682651337,False
+Noisy Student,milk10k|imagenet|k32,2.683158154024491,False
+Noisy Student,milk10k|imagenet|k100,0.8823176516304088,False
+Noisy Student,milk10k|ham|k16,-0.18817084560010072,False
+Noisy Student,milk10k|ham|k32,0.531592684067364,False
+Noisy Student,milk10k|ham|k100,1.2635199989462138,False
+Noisy Student,milk10k_clinico|imagenet|k16,0.7110583338273002,False
+Noisy Student,milk10k_clinico|imagenet|k32,1.6571563757549383,False
+Noisy Student,milk10k_clinico|imagenet|k100,2.734709845685721,False
+Noisy Student,milk10k_clinico|ham|k16,1.1169548121949746,False
+Noisy Student,milk10k_clinico|ham|k32,2.4400132250564726,True
+Noisy Student,milk10k_clinico|ham|k100,2.079366145699551,False
+Noisy Student,mean,1.7212965723085025,False
+UDA,bcn20000|imagenet|k16,3.190829253865476,True
+UDA,bcn20000|imagenet|k32,3.4802420487749117,True
+UDA,bcn20000|imagenet|k100,2.0489381245546054,True
+UDA,bcn20000|ham|k16,4.039139899275314,True
+UDA,bcn20000|ham|k32,2.471647065298407,False
+UDA,bcn20000|ham|k100,3.2931693128134696,True
+UDA,milk10k|imagenet|k16,0.7930724414323592,False
+UDA,milk10k|imagenet|k32,2.245761804087384,False
+UDA,milk10k|imagenet|k100,-0.9281378883378408,False
+UDA,milk10k|ham|k16,-2.2831150540396363,False
+UDA,milk10k|ham|k32,-1.391238689876373,False
+UDA,milk10k|ham|k100,-0.052157620543620456,False
+UDA,milk10k_clinico|imagenet|k16,-0.1396650793964369,False
+UDA,milk10k_clinico|imagenet|k32,1.1588363004090028,False
+UDA,milk10k_clinico|imagenet|k100,1.2064245849057869,False
+UDA,milk10k_clinico|ham|k16,0.9821683033332661,False
+UDA,milk10k_clinico|ham|k32,2.215532064834389,False
+UDA,milk10k_clinico|ham|k100,2.2287858370709954,False
+UDA,mean,1.3644573726923033,False
+FixMatch,bcn20000|imagenet|k16,4.796044289998799,True
+FixMatch,bcn20000|imagenet|k32,3.464331551525993,True
+FixMatch,bcn20000|imagenet|k100,3.8456751254312254,True
+FixMatch,bcn20000|ham|k16,4.67052217737165,True
+FixMatch,bcn20000|ham|k32,2.631756220193002,True
+FixMatch,bcn20000|ham|k100,3.607629616781357,True
+FixMatch,milk10k|imagenet|k16,-2.124960502657524,False
+FixMatch,milk10k|imagenet|k32,1.1446488181093741,False
+FixMatch,milk10k|imagenet|k100,0.9391006171253906,False
+FixMatch,milk10k|ham|k16,-3.0224637858699994,False
+FixMatch,milk10k|ham|k32,-0.8366171253943449,False
+FixMatch,milk10k|ham|k100,1.1238252026897997,False
+FixMatch,milk10k_clinico|imagenet|k16,0.05456821639564424,False
+FixMatch,milk10k_clinico|imagenet|k32,2.014574381063406,False
+FixMatch,milk10k_clinico|imagenet|k100,1.7764835312481495,False
+FixMatch,milk10k_clinico|ham|k16,-1.1568063859635245,False
+FixMatch,milk10k_clinico|ham|k32,2.082864726377001,True
+FixMatch,milk10k_clinico|ham|k100,2.349352143473422,False
+FixMatch,mean,1.5200293787721566,False
+FlexMatch,bcn20000|imagenet|k16,3.4214262462098843,True
+FlexMatch,bcn20000|imagenet|k32,2.8766202029705057,True
+FlexMatch,bcn20000|imagenet|k100,0.9903442639430906,False
+FlexMatch,bcn20000|ham|k16,2.313146370915139,True
+FlexMatch,bcn20000|ham|k32,-0.19008162327315858,False
+FlexMatch,bcn20000|ham|k100,1.5533188912786016,False
+FlexMatch,milk10k|imagenet|k16,-2.9159341645096903,True
+FlexMatch,milk10k|imagenet|k32,-1.0914130129813657,False
+FlexMatch,milk10k|imagenet|k100,-0.9133075945282002,False
+FlexMatch,milk10k|ham|k16,-2.849620464589383,False
+FlexMatch,milk10k|ham|k32,-2.5320933920820847,False
+FlexMatch,milk10k|ham|k100,-1.2382317941422443,False
+FlexMatch,milk10k_clinico|imagenet|k16,-0.6902197545987988,False
+FlexMatch,milk10k_clinico|imagenet|k32,0.41183047163660547,False
+FlexMatch,milk10k_clinico|imagenet|k100,-0.26297213385759904,False
+FlexMatch,milk10k_clinico|ham|k16,-0.07062401454229388,False
+FlexMatch,milk10k_clinico|ham|k32,-0.009015536806890623,False
+FlexMatch,milk10k_clinico|ham|k100,0.4983494760691059,False
+FlexMatch,mean,-0.038804309049376484,False
+DebiasMatch,bcn20000|imagenet|k16,3.401814171894111,False
+DebiasMatch,bcn20000|imagenet|k32,2.6536755630150326,False
+DebiasMatch,bcn20000|imagenet|k100,2.8392130594429075,True
+DebiasMatch,bcn20000|ham|k16,3.3178266668367558,False
+DebiasMatch,bcn20000|ham|k32,2.547818040662821,True
+DebiasMatch,bcn20000|ham|k100,2.98626361813846,True
+DebiasMatch,milk10k|imagenet|k16,-2.127348336659357,False
+DebiasMatch,milk10k|imagenet|k32,0.9062747097139621,False
+DebiasMatch,milk10k|imagenet|k100,-1.4385060955128324,False
+DebiasMatch,milk10k|ham|k16,-3.272314608813629,False
+DebiasMatch,milk10k|ham|k32,-2.198501616908044,False
+DebiasMatch,milk10k|ham|k100,1.280756251934696,False
+DebiasMatch,milk10k_clinico|imagenet|k16,-0.4762782267359526,False
+DebiasMatch,milk10k_clinico|imagenet|k32,0.5893073047361213,False
+DebiasMatch,milk10k_clinico|imagenet|k100,1.054105971692583,False
+DebiasMatch,milk10k_clinico|ham|k16,-1.406481015326051,False
+DebiasMatch,milk10k_clinico|ham|k32,0.49660155565654096,False
+DebiasMatch,milk10k_clinico|ham|k100,1.0757201925800088,False
+DebiasMatch,mean,0.6794415114637853,False
+DST,bcn20000|imagenet|k16,4.585772576906228,True
+DST,bcn20000|imagenet|k32,3.4216029677556548,True
+DST,bcn20000|imagenet|k100,-2.19251469551905,False
+DST,bcn20000|ham|k16,2.4917906866252126,True
+DST,bcn20000|ham|k32,2.63326125365941,True
+DST,bcn20000|ham|k100,-1.771334302631884,False
+DST,milk10k|imagenet|k16,1.43894357616592,False
+DST,milk10k|imagenet|k32,0.4041638905903241,False
+DST,milk10k|imagenet|k100,-10.354010946236983,True
+DST,milk10k|ham|k16,-1.4188282652651267,False
+DST,milk10k|ham|k32,-1.851423287427633,False
+DST,milk10k|ham|k100,-5.182062186744647,False
+DST,milk10k_clinico|imagenet|k16,1.1181315787740502,False
+DST,milk10k_clinico|imagenet|k32,0.9251692056404096,False
+DST,milk10k_clinico|imagenet|k100,-2.6790017453386255,False
+DST,milk10k_clinico|ham|k16,-0.29617387524451144,False
+DST,milk10k_clinico|ham|k32,0.6859076485349036,False
+DST,milk10k_clinico|ham|k100,-0.0798754420975655,False
+DST,mean,-0.45113785343632834,False
+Self-Tuning,bcn20000|imagenet|k16,0.9428098898748132,False
+Self-Tuning,bcn20000|imagenet|k32,-0.2732884565974629,False
+Self-Tuning,bcn20000|imagenet|k100,-0.096562854633126,False
+Self-Tuning,bcn20000|ham|k16,0.1399459777113492,False
+Self-Tuning,bcn20000|ham|k32,-0.6764346325047853,False
+Self-Tuning,bcn20000|ham|k100,-0.27789006562604895,False
+Self-Tuning,milk10k|imagenet|k16,-0.9095905106268063,False
+Self-Tuning,milk10k|imagenet|k32,-0.10542893837307901,False
+Self-Tuning,milk10k|imagenet|k100,0.07525404885631133,False
+Self-Tuning,milk10k|ham|k16,-2.038277792047843,False
+Self-Tuning,milk10k|ham|k32,-1.8258980327069778,False
+Self-Tuning,milk10k|ham|k100,-1.1864351491441254,False
+Self-Tuning,milk10k_clinico|imagenet|k16,-0.33696063438119095,False
+Self-Tuning,milk10k_clinico|imagenet|k32,1.2923194298999576,False
+Self-Tuning,milk10k_clinico|imagenet|k100,2.345956465327036,False
+Self-Tuning,milk10k_clinico|ham|k16,-0.4198302608787287,False
+Self-Tuning,milk10k_clinico|ham|k32,0.4485176740234337,False
+Self-Tuning,milk10k_clinico|ham|k100,1.3750036948489537,False
+Self-Tuning,mean,-0.0848216748321289,False
+SSL mean,bcn20000|imagenet|k16,3.4290781456237864,True
+SSL mean,bcn20000|imagenet|k32,2.681410054067708,True
+SSL mean,bcn20000|imagenet|k100,1.7136685600998356,True
+SSL mean,bcn20000|ham|k16,3.180437757287091,True
+SSL mean,bcn20000|ham|k32,1.9830235201898556,True
+SSL mean,bcn20000|ham|k100,1.8534737297170287,True
+SSL mean,milk10k|imagenet|k16,-0.7362038660897174,False
+SSL mean,milk10k|imagenet|k32,0.7840662043165862,False
+SSL mean,milk10k|imagenet|k100,-1.667375371625404,False
+SSL mean,milk10k|ham|k16,-1.5506480356707693,False
+SSL mean,milk10k|ham|k32,-1.1529320819584634,False
+SSL mean,milk10k|ham|k100,-0.6089643595265828,False
+SSL mean,milk10k_clinico|imagenet|k16,0.5293581658796203,False
+SSL mean,milk10k_clinico|imagenet|k32,1.4266921894449822,False
+SSL mean,milk10k_clinico|imagenet|k100,1.205777315866774,False
+SSL mean,milk10k_clinico|ham|k16,0.3172890847180768,False
+SSL mean,milk10k_clinico|ham|k32,1.8787715503217328,True
+SSL mean,milk10k_clinico|ham|k100,1.6560467619028827,False
+SSL mean,mean,0.9401649624758347,False

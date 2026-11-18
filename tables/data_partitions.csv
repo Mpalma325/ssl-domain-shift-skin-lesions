@@ -1,0 +1,13 @@
+dataset,split,lesions,images
+HAM10000,Train,4534,5584
+HAM10000,Validation,972,1187
+HAM10000,Test,969,1167
+HAM10000,Total,6475,7938
+BCN20000,Train,3142,11117
+BCN20000,Validation,448,1649
+BCN20000,Test,899,3199
+BCN20000,Total,4489,15965
+MILK10k (per modality),Train,3183,3183
+MILK10k (per modality),Validation,454,454
+MILK10k (per modality),Test,914,914
+MILK10k (per modality),Total,4551,4551

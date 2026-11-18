@@ -1,0 +1,9 @@
+variant,init,target,k,method,seed,mu,threshold,best_epoch,ba,ba_full_test,ba_val,rec_mel,pl_ratio_mean,pl_accuracy_mean,pl_epochs
+mu7,ham,milk10k,16,fixmatch,0,7,0.95,4,41.4751,41.8297,45.5478,19.7674,59.3444,49.3278,18
+mu7,ham,milk10k,16,fixmatch,1,7,0.95,7,44.655,45.3104,55.4334,22.093,64.5524,56.7238,21
+mu7,ham,milk10k,16,fixmatch,2,7,0.95,7,44.6791,45.2978,50.0675,27.907,63.8905,54.4143,21
+mu7,ham,milk10k,16,fixmatch,3,7,0.95,6,51.2753,51.9114,52.0928,53.4884,61.755,56.57,20
+mu7,ham,milk10k,16,fixmatch,4,7,0.95,2,42.6822,42.9822,49.2152,17.4419,58.575,52.6,16
+threshold_0.99,ham,milk10k,16,fixmatch,0,1,0.99,20,42.712,43.0804,46.9214,9.30233,40.3735,63.2,34
+threshold_0.99,ham,milk10k,16,fixmatch,1,1,0.99,20,48.4652,49.081,54.762,33.7209,46.4412,59.4588,34
+threshold_0.99,ham,milk10k,16,fixmatch,2,1,0.99,1,46.3279,46.7878,50.9852,38.3721,39.1,64.0733,15

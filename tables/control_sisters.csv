@@ -1,0 +1,3 @@
+comparison,diff,half_width,significant,positive_seeds,n_seeds
+"FixMatch, without - with these images",1.4851040200167618,2.8703722997356964,False,4,5
+"Pi-Model, without - with these images",0.40487913146791926,2.486379779646596,False,4,5

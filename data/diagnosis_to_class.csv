@@ -1,0 +1,61 @@
+dataset,class,diagnosis_1,diagnosis_2,diagnosis_3,diagnosis_4,n_imagenes
+HAM10000,akiec,Indeterminate,Indeterminate epidermal proliferations,Solar or actinic keratosis,,116
+HAM10000,akiec,Malignant,Malignant epidermal proliferations,"Squamous cell carcinoma, NOS",,190
+HAM10000,bcc,Malignant,Malignant adnexal epithelial proliferations - Follicular,Basal cell carcinoma,,333
+HAM10000,bkl,Benign,Benign epidermal proliferations,Pigmented benign keratosis,,883
+HAM10000,mel,Malignant,Malignant melanocytic proliferations (Melanoma),"Melanoma, NOS",,635
+HAM10000,nv,Benign,Benign melanocytic proliferations,Nevus,,5781
+BCN20000,akiec,Indeterminate,Indeterminate epidermal proliferations,Solar or actinic keratosis,,1088
+BCN20000,bcc,Malignant,Malignant adnexal epithelial proliferations - Follicular,Basal cell carcinoma,,3676
+BCN20000,bkl,Benign,Benign epidermal proliferations,Seborrheic keratosis,,1268
+BCN20000,bkl,Benign,Benign epidermal proliferations,Solar lentigo,,283
+BCN20000,mel,Malignant,Malignant melanocytic proliferations (Melanoma),"Melanoma, NOS",,4003
+BCN20000,nv,Benign,Benign melanocytic proliferations,Nevus,,5647
+MILK10K,akiec,Indeterminate,Indeterminate epidermal proliferations,Solar or actinic keratosis,,123
+MILK10K,akiec,Malignant,Malignant epidermal proliferations,Squamous cell carcinoma in situ,"Squamous cell carcinoma in situ, Bowens disease",180
+MILK10K,bcc,Malignant,Malignant adnexal epithelial proliferations - Follicular,Basal cell carcinoma,,2522
+MILK10K,bkl,Benign,Benign epidermal proliferations,Clear cell acanthoma,,4
+MILK10K,bkl,Benign,Benign epidermal proliferations,Lichen planus like keratosis,,135
+MILK10K,bkl,Benign,Benign epidermal proliferations,Seborrheic keratosis,,340
+MILK10K,bkl,Benign,Benign epidermal proliferations,Solar lentigo,,63
+MILK10K,bkl,Benign,Flat melanotic pigmentations - not melanocytic nevus,Ink-spot lentigo,,2
+MILK10K,mel,Malignant,Malignant melanocytic proliferations (Melanoma),Melanoma Invasive,,255
+MILK10K,mel,Malignant,Malignant melanocytic proliferations (Melanoma),Melanoma in situ,,181
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,,166
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,Blue nevus,31
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Acral",36
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, BAP-1 deficient",2
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Balloon cell",1
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Combined",18
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Congenital",61
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, NOS, Compound",203
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, NOS, Dermal",66
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, NOS, Junctional",106
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Recurrent or persistent",8
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Reed",32
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Spilus",3
+MILK10K,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Spitz",13
+MILK10K_CLINICO,akiec,Indeterminate,Indeterminate epidermal proliferations,Solar or actinic keratosis,,123
+MILK10K_CLINICO,akiec,Malignant,Malignant epidermal proliferations,Squamous cell carcinoma in situ,"Squamous cell carcinoma in situ, Bowens disease",180
+MILK10K_CLINICO,bcc,Malignant,Malignant adnexal epithelial proliferations - Follicular,Basal cell carcinoma,,2522
+MILK10K_CLINICO,bkl,Benign,Benign epidermal proliferations,Clear cell acanthoma,,4
+MILK10K_CLINICO,bkl,Benign,Benign epidermal proliferations,Lichen planus like keratosis,,135
+MILK10K_CLINICO,bkl,Benign,Benign epidermal proliferations,Seborrheic keratosis,,340
+MILK10K_CLINICO,bkl,Benign,Benign epidermal proliferations,Solar lentigo,,63
+MILK10K_CLINICO,bkl,Benign,Flat melanotic pigmentations - not melanocytic nevus,Ink-spot lentigo,,2
+MILK10K_CLINICO,mel,Malignant,Malignant melanocytic proliferations (Melanoma),Melanoma Invasive,,255
+MILK10K_CLINICO,mel,Malignant,Malignant melanocytic proliferations (Melanoma),Melanoma in situ,,181
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,,166
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,Blue nevus,31
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Acral",36
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, BAP-1 deficient",2
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Balloon cell",1
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Combined",18
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Congenital",61
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, NOS, Compound",203
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, NOS, Dermal",66
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, NOS, Junctional",106
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Recurrent or persistent",8
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Reed",32
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Spilus",3
+MILK10K_CLINICO,nv,Benign,Benign melanocytic proliferations,Nevus,"Nevus, Spitz",13

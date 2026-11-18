@@ -1,0 +1,30 @@
+diagnosis_3,lesions,lesions_pct
+Basal cell carcinoma,2522,48.12977099236641
+Nevus,746,14.236641221374045
+Seborrheic keratosis,340,6.488549618320611
+"Squamous cell carcinoma, invasive",311,5.935114503816794
+"Melanoma, invasive",255,4.866412213740458
+Melanoma in situ,181,3.454198473282443
+Squamous cell carcinoma in situ,180,3.435114503816794
+Keratoacanthoma,162,3.0916030534351147
+Lichen planus-like keratosis,135,2.5763358778625953
+Solar or actinic keratosis,123,2.3473282442748094
+Solar lentigo,63,1.202290076335878
+Dermatofibroma,52,0.9923664122137404
+Hemangioma,34,0.648854961832061
+Melanoma metastasis,14,0.26717557251908397
+Angiokeratoma,7,0.13358778625954199
+Mucosal melanotic macule,7,0.13358778625954199
+Pyogenic granuloma,6,0.11450381679389313
+Clear cell acanthoma,4,0.07633587786259542
+Juvenile xanthogranuloma,3,0.05725190839694656
+Porokeratosis,3,0.05725190839694656
+Trichoblastoma,3,0.05725190839694656
+Infundibular or epidermal cyst,2,0.03816793893129771
+Ink-spot lentigo,2,0.03816793893129771
+Mastocytosis,2,0.03816793893129771
+Sebaceous hyperplasia,2,0.03816793893129771
+Molluscum,1,0.019083969465648856
+Supernumerary nipple,1,0.019083969465648856
+Not annotated,79,1.5076335877862594
+Total,5240,100.0

@@ -1,0 +1,14 @@
+diagnosis_3,lesions,images,class
+Solar or actinic keratosis,314,1088,akiec
+Basal cell carcinoma,1305,3676,bcc
+Seborrheic keratosis,392,1268,bkl
+Solar lentigo,79,283,bkl
+"Melanoma, NOS",695,4003,mel
+Nevus,1704,5647,nv
+Melanoma metastasis,229,633,Excluded
+"Squamous cell carcinoma, NOS",161,559,Excluded
+Scar,96,314,Excluded
+Dermatofibroma,54,168,Excluded
+Vascular,48,151,Excluded
+Not annotated,363,1156,Excluded
+Total retained,4489,15965,

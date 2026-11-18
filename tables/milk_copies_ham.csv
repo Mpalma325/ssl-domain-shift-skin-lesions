@@ -1,0 +1,5 @@
+milk10k_partition,ham_train,ham_val,ham_test,Total
+Training,64,11,9,84
+Validation,7,2,2,11
+Test,21,2,3,26
+Total,92,15,14,121

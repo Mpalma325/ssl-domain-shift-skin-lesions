@@ -1,0 +1,21 @@
+family,methods,target,n_seeds,d_ba,t_halfwidth,excludes_zero
+Prediction consistency,pi_model + mean_teacher,all,5,1.8962182310503348,0.6431172544222901,True
+Prediction consistency,pi_model + mean_teacher,bcn20000,5,3.484197146592174,0.8542443314939471,True
+Prediction consistency,pi_model + mean_teacher,milk10k,5,-0.7267814945806663,2.7632005905499453,False
+Prediction consistency,pi_model + mean_teacher,milk10k_clinico,5,2.931239041139496,0.6126903531672213,True
+Self-training,pseudo_label + noisy_student,all,5,1.4125698090225665,0.43997363077772605,True
+Self-training,pseudo_label + noisy_student,bcn20000,5,2.2471120031436067,0.7672863945628662,True
+Self-training,pseudo_label + noisy_student,milk10k,5,0.33499026781617713,2.4995932219393455,False
+Self-training,pseudo_label + noisy_student,milk10k_clinico,5,1.6556071561079158,1.6292012727716647,True
+Strong augmentation and confidence filtering,uda + fixmatch + flexmatch,all,5,0.7566348822463469,0.20149658622233302,True
+Strong augmentation and confidence filtering,uda + fixmatch + flexmatch,bcn20000,5,2.7100275478504203,0.8096509436412302,True
+Strong augmentation and confidence filtering,uda + fixmatch + flexmatch,milk10k,5,-1.4535236359830983,1.5115543403609903,False
+Strong augmentation and confidence filtering,uda + fixmatch + flexmatch,milk10k_clinico,5,1.0134007348717187,0.8708003892986668,True
+Bias-aware self-training,debiasmatch + dst,all,5,0.002163961898317668,0.5091503725886231,False
+Bias-aware self-training,debiasmatch + dst,bcn20000,5,2.0342709938817958,1.6053733219285367,True
+Bias-aware self-training,debiasmatch + dst,milk10k,5,-2.1070622855373973,2.1935431341913816,False
+Bias-aware self-training,debiasmatch + dst,milk10k_clinico,5,0.07928317735055423,0.732468795200239,False
+Self-Tuning,self_tuning,all,5,-0.4956998429249747,0.8072526583895506,False
+Self-Tuning,self_tuning,bcn20000,5,-0.27145957347316163,0.8027070081800992,False
+Self-Tuning,self_tuning,milk10k,5,-1.6835369912996487,2.5716628617309962,False
+Self-Tuning,self_tuning,milk10k_clinico,5,0.46789703599788623,0.9284684828976645,False

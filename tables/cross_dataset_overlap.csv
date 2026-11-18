@@ -1,0 +1,4 @@
+dataset_1,dataset_2,shared_lesions
+HAM10000,BCN20000,0
+HAM10000,MILK10k,859
+BCN20000,MILK10k,0

@@ -1,0 +1,10 @@
+data/*/
+!data/splits/
+checkpoints/
+outputs/
+__pycache__/
+*.pyc
+*.pth
+results/predictions_*.npz
+figures/*.png
+features/

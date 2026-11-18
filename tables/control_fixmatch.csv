@@ -1,0 +1,4 @@
+comparison,mean,half_width,significant,positive_seeds,n_seeds
+mu=7 - mu=1,1.0814049661140843,0.7660675643346972,True,5,5
+mu=7 - ERM,-1.941058819755915,3.972296384082603,False,1,5
+mu=1 - ERM,-3.0224637858699994,4.031363923327699,False,1,5

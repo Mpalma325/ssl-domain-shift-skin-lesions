@@ -1,0 +1,30 @@
+diagnosis_3,lesions,class
+Squamous cell carcinoma in situ,180,akiec
+Solar or actinic keratosis,123,akiec
+Basal cell carcinoma,2522,bcc
+Seborrheic keratosis,340,bkl
+Lichen planus-like keratosis,135,bkl
+Solar lentigo,63,bkl
+Clear cell acanthoma,4,bkl
+Ink-spot lentigo,2,bkl
+"Melanoma, invasive",255,mel
+Melanoma in situ,181,mel
+Nevus,746,nv
+"Squamous cell carcinoma, invasive",311,Excluded
+Keratoacanthoma,162,Excluded
+Dermatofibroma,52,Excluded
+Hemangioma,34,Excluded
+Melanoma metastasis,14,Excluded
+Angiokeratoma,7,Excluded
+Mucosal melanotic macule,7,Excluded
+Pyogenic granuloma,6,Excluded
+Juvenile xanthogranuloma,3,Excluded
+Porokeratosis,3,Excluded
+Trichoblastoma,3,Excluded
+Infundibular or epidermal cyst,2,Excluded
+Mastocytosis,2,Excluded
+Sebaceous hyperplasia,2,Excluded
+Molluscum,1,Excluded
+Supernumerary nipple,1,Excluded
+Not annotated,79,Excluded
+Total retained,4551,

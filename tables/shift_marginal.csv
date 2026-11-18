@@ -1,0 +1,4 @@
+target,jsd_balanced,mmd2_balanced,jsd_marginal,mmd2_marginal
+BCN20000,0.044895,0.062346,0.069724,0.109083
+MILK10k dermoscopic,0.032442,0.03823,0.082958,0.133573
+MILK10k clinical,0.067916,0.111079,0.10301,0.177012

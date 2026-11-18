@@ -1,0 +1,38 @@
+figure,panel,modality,dataset,isic_id,diagnosis,title
+ham10000_examples,1,dermoscopic,HAM10000,ISIC_0025126,nv,nv
+ham10000_examples,2,dermoscopic,HAM10000,ISIC_0031550,mel,mel
+ham10000_examples,3,dermoscopic,HAM10000,ISIC_0025567,bkl,bkl
+ham10000_examples,4,dermoscopic,HAM10000,ISIC_0029278,bcc,bcc
+ham10000_examples,5,dermoscopic,HAM10000,ISIC_0026014,akiec,akiec
+ham10000_examples,6,dermoscopic,HAM10000,ISIC_0024375,vasc,vasc
+ham10000_examples,7,dermoscopic,HAM10000,ISIC_0027745,df,df
+milk10k_examples_a,1,dermoscopic,MILK10k,ISIC_1799338,Basal cell carcinoma,Basal cell carcinoma
+milk10k_examples_a,1,clinical,MILK10k,ISIC_6900639,Basal cell carcinoma,Basal cell carcinoma
+milk10k_examples_a,2,dermoscopic,MILK10k,ISIC_4622192,Nevus,Nevus
+milk10k_examples_a,2,clinical,MILK10k,ISIC_0526168,Nevus,Nevus
+milk10k_examples_a,3,dermoscopic,MILK10k,ISIC_9887877,Seborrheic keratosis,Seborrheic keratosis
+milk10k_examples_a,3,clinical,MILK10k,ISIC_2091010,Seborrheic keratosis,Seborrheic keratosis
+milk10k_examples_a,4,dermoscopic,MILK10k,ISIC_3420711,"Squamous cell carcinoma, Invasive","Squamous cell carcinoma, invasive"
+milk10k_examples_a,4,clinical,MILK10k,ISIC_6135860,"Squamous cell carcinoma, Invasive","Squamous cell carcinoma, invasive"
+milk10k_examples_a,5,dermoscopic,MILK10k,ISIC_1978418,Melanoma Invasive,"Melanoma, invasive"
+milk10k_examples_a,5,clinical,MILK10k,ISIC_6834207,Melanoma Invasive,"Melanoma, invasive"
+milk10k_examples_b,1,dermoscopic,MILK10k,ISIC_6365981,Melanoma in situ,Melanoma in situ
+milk10k_examples_b,1,clinical,MILK10k,ISIC_5498605,Melanoma in situ,Melanoma in situ
+milk10k_examples_b,2,dermoscopic,MILK10k,ISIC_3004699,Squamous cell carcinoma in situ,Squamous cell carcinoma in situ
+milk10k_examples_b,2,clinical,MILK10k,ISIC_4984580,Squamous cell carcinoma in situ,Squamous cell carcinoma in situ
+milk10k_examples_b,3,dermoscopic,MILK10k,ISIC_9055179,Keratoacanthoma,Keratoacanthoma
+milk10k_examples_b,3,clinical,MILK10k,ISIC_6340932,Keratoacanthoma,Keratoacanthoma
+milk10k_examples_b,4,dermoscopic,MILK10k,ISIC_2527161,Lichen planus like keratosis,Lichen planus-like keratosis
+milk10k_examples_b,4,clinical,MILK10k,ISIC_1649393,Lichen planus like keratosis,Lichen planus-like keratosis
+milk10k_examples_b,5,dermoscopic,MILK10k,ISIC_4222750,Solar or actinic keratosis,Solar or actinic keratosis
+milk10k_examples_b,5,clinical,MILK10k,ISIC_1157338,Solar or actinic keratosis,Solar or actinic keratosis
+bcn20000_examples,1,dermoscopic,BCN20000,ISIC_0053694,Nevus,Nevus
+bcn20000_examples,2,dermoscopic,BCN20000,ISIC_0053513,"Melanoma, NOS","Melanoma, NOS"
+bcn20000_examples,3,dermoscopic,BCN20000,ISIC_0053543,Basal cell carcinoma,Basal cell carcinoma
+bcn20000_examples,4,dermoscopic,BCN20000,ISIC_0053522,Seborrheic keratosis,Seborrheic keratosis
+bcn20000_examples,5,dermoscopic,BCN20000,ISIC_0054447,Solar or actinic keratosis,Solar or actinic keratosis
+bcn20000_examples,6,dermoscopic,BCN20000,ISIC_0057490,Melanoma metastasis,Melanoma metastasis
+bcn20000_examples,7,dermoscopic,BCN20000,ISIC_0061047,"Squamous cell carcinoma, NOS","Squamous cell carcinoma, NOS"
+bcn20000_examples,8,dermoscopic,BCN20000,ISIC_0060759,Scar,Scar
+bcn20000_examples,9,dermoscopic,BCN20000,ISIC_0056576,Solar lentigo,Solar lentigo
+bcn20000_examples,10,dermoscopic,BCN20000,ISIC_0060890,Dermatofibroma,Dermatofibroma

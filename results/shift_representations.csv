@@ -1,0 +1,4 @@
+target,n_per_class,jsd_balanced_mean,jsd_balanced_sd,mmd2_balanced_mean,mmd2_balanced_sd,centroid_cosine_mean,centroid_cosine_akiec,centroid_cosine_bcc,centroid_cosine_bkl,centroid_cosine_mel,centroid_cosine_nv,jsd_marginal,mmd2_marginal
+bcn20000,210,0.044895,0.000814,0.062346,0.001801,0.775093,0.758136,0.772392,0.793739,0.737972,0.813224,0.069724,0.109083
+milk10k,210,0.032442,0.00085,0.03823,0.00183,0.849731,0.869494,0.821287,0.871046,0.846929,0.839901,0.082958,0.133573
+milk10k_clinico,210,0.067916,0.001306,0.111079,0.002943,0.649205,0.583099,0.525929,0.781127,0.60774,0.748132,0.10301,0.177012

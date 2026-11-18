@@ -1,0 +1,41 @@
+labeling,method,seed,source,decision,best_epoch,ba,ba_full_test,ba_val,ba_raw_argmax
+balanced,erm,0,main_design,argmax(logit),2,43.9428,44.1718,47.7434,
+balanced,erm,1,main_design,argmax(logit),12,45.9021,46.4188,54.9428,
+balanced,erm,2,main_design,argmax(logit),18,51.7596,52.5982,55.7136,
+balanced,erm,3,main_design,argmax(logit),6,51.5685,52.0132,53.714,
+balanced,erm,4,main_design,argmax(logit),27,41.299,42.3356,44.7633,
+balanced,erm,5,control,argmax(logit),6,45.7382,46.0268,55.4551,
+balanced,erm,6,control,argmax(logit),7,47.3501,47.4005,51.2323,
+balanced,erm,7,control,argmax(logit),3,46.9661,47.3685,49.5059,
+balanced,erm,8,control,argmax(logit),17,48.7267,48.9811,49.9694,
+balanced,erm,9,control,argmax(logit),5,46.7297,47.5949,50.7439,
+natural,erm,0,control,argmax(logit - log labeled prior),4,44.3651,44.4994,47.1494,42.7808
+natural,erm,1,control,argmax(logit - log labeled prior),23,43.5432,44.3466,48.6109,41.2083
+natural,erm,2,control,argmax(logit - log labeled prior),2,50.9631,51.3357,54.2287,48.1865
+natural,erm,3,control,argmax(logit - log labeled prior),5,47.9859,48.6392,54.8763,46.9175
+natural,erm,4,control,argmax(logit - log labeled prior),6,42.2107,42.9574,46.2547,41.7824
+natural,erm,5,control,argmax(logit - log labeled prior),8,48.3958,48.4882,54.1122,46.4843
+natural,erm,6,control,argmax(logit - log labeled prior),1,46.1014,45.9403,50.84,43.4215
+natural,erm,7,control,argmax(logit - log labeled prior),12,42.3624,42.717,52.6114,41.7327
+natural,erm,8,control,argmax(logit - log labeled prior),24,42.8823,43.2833,50.0014,41.0203
+natural,erm,9,control,argmax(logit - log labeled prior),5,45.489,45.6459,50.6205,42.128
+balanced,fixmatch,0,main_design,argmax(logit),11,40.9759,41.5705,44.4558,
+balanced,fixmatch,1,main_design,argmax(logit),1,44.2081,44.6525,55.5842,
+balanced,fixmatch,2,main_design,argmax(logit),11,43.3179,43.9607,51.9102,
+balanced,fixmatch,3,main_design,argmax(logit),11,49.3622,49.7547,53.9765,
+balanced,fixmatch,4,main_design,argmax(logit),5,41.4957,41.6865,45.4009,
+balanced,fixmatch,5,control,argmax(logit),1,45.7648,45.9384,58.021,
+balanced,fixmatch,6,control,argmax(logit),1,46.7511,46.7239,55.0021,
+balanced,fixmatch,7,control,argmax(logit),1,47.559,48.0549,53.5718,
+balanced,fixmatch,8,control,argmax(logit),13,46.9128,47.4526,51.6421,
+balanced,fixmatch,9,control,argmax(logit),35,48.5738,49.094,56.782,
+natural,fixmatch,0,control,argmax(logit - log labeled prior),4,40.5081,41.0387,45.7333,39.9056
+natural,fixmatch,1,control,argmax(logit - log labeled prior),1,40.9997,41.5604,46.6141,40.8325
+natural,fixmatch,2,control,argmax(logit - log labeled prior),8,44.4933,44.9752,48.4276,43.072
+natural,fixmatch,3,control,argmax(logit - log labeled prior),37,44.0117,44.5663,51.8068,43.6061
+natural,fixmatch,4,control,argmax(logit - log labeled prior),4,41.7753,42.2983,47.1148,40.7169
+natural,fixmatch,5,control,argmax(logit - log labeled prior),1,44.5804,44.8444,51.3658,43.9417
+natural,fixmatch,6,control,argmax(logit - log labeled prior),1,46.6082,47.1034,45.8372,43.9039
+natural,fixmatch,7,control,argmax(logit - log labeled prior),8,40.8906,41.6453,50.4755,39.2553
+natural,fixmatch,8,control,argmax(logit - log labeled prior),15,45.4008,45.8793,53.1186,43.6498
+natural,fixmatch,9,control,argmax(logit - log labeled prior),4,44.0758,44.796,50.186,42.4354

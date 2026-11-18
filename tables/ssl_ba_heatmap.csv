@@ -1,0 +1,229 @@
+row,column,value
+ERM,bcn20000|imagenet|k16,41.419461635453324
+ERM,bcn20000|imagenet|k32,47.87225553789072
+ERM,bcn20000|imagenet|k100,51.95954795566464
+ERM,bcn20000|ham|k16,43.16374472662354
+ERM,bcn20000|ham|k32,49.12916124569479
+ERM,bcn20000|ham|k100,52.731073381258305
+ERM,milk10k|imagenet|k16,44.757534923238026
+ERM,milk10k|imagenet|k32,48.319754572457896
+ERM,milk10k|imagenet|k100,55.39163085758695
+ERM,milk10k|ham|k16,46.89439881975592
+ERM,milk10k|ham|k32,51.85792732805121
+ERM,milk10k|ham|k100,56.15659878945947
+ERM,milk10k_clinico|imagenet|k16,41.16983680754513
+ERM,milk10k_clinico|imagenet|k32,45.27440021602682
+ERM,milk10k_clinico|imagenet|k100,49.096639966278744
+ERM,milk10k_clinico|ham|k16,41.68744396804384
+ERM,milk10k_clinico|ham|k32,45.35017726054283
+ERM,milk10k_clinico|ham|k100,49.6781311572583
+ERM,mean,47.88387328604614
+Π-Model,bcn20000|imagenet|k16,45.84612292328551
+Π-Model,bcn20000|imagenet|k32,50.65518561964821
+Π-Model,bcn20000|imagenet|k100,54.51701543424508
+Π-Model,bcn20000|ham|k16,47.874452440987795
+Π-Model,bcn20000|ham|k32,51.03639314800831
+Π-Model,bcn20000|ham|k100,55.92482089040003
+Π-Model,milk10k|imagenet|k16,44.510122990390755
+Π-Model,milk10k|imagenet|k32,48.12370944392852
+Π-Model,milk10k|imagenet|k100,55.34446282428721
+Π-Model,milk10k|ham|k16,47.46511733285912
+Π-Model,milk10k|ham|k32,51.51879588758702
+Π-Model,milk10k|ham|k100,55.56174581283384
+Π-Model,milk10k_clinico|imagenet|k16,42.78721774581284
+Π-Model,milk10k_clinico|imagenet|k32,47.92094856849302
+Π-Model,milk10k_clinico|imagenet|k100,50.64586439048165
+Π-Model,milk10k_clinico|ham|k16,42.96748785837071
+Π-Model,milk10k_clinico|ham|k32,49.44745561241628
+Π-Model,milk10k_clinico|ham|k100,52.91036899751701
+Π-Model,mean,49.72540488453072
+Mean Teacher,bcn20000|imagenet|k16,46.16111342804259
+Mean Teacher,bcn20000|imagenet|k32,51.87912144518094
+Mean Teacher,bcn20000|imagenet|k100,53.93020216364569
+Mean Teacher,bcn20000|ham|k16,48.082146259036826
+Mean Teacher,bcn20000|ham|k32,53.38402243189749
+Mean Teacher,bcn20000|ham|k100,54.65130641637586
+Mean Teacher,milk10k|imagenet|k16,44.671379318066556
+Mean Teacher,milk10k|imagenet|k32,49.22419247462672
+Mean Teacher,milk10k|imagenet|k100,50.67475808289371
+Mean Teacher,milk10k|ham|k16,46.995888798877715
+Mean Teacher,milk10k|ham|k32,50.67774367891038
+Mean Teacher,milk10k|ham|k100,53.237869395981114
+Mean Teacher,milk10k_clinico|imagenet|k16,43.621536609301
+Mean Teacher,milk10k_clinico|imagenet|k32,47.99270055916698
+Mean Teacher,milk10k_clinico|imagenet|k100,51.59454769384784
+Mean Teacher,milk10k_clinico|ham|k16,44.0103804574763
+Mean Teacher,milk10k_clinico|ham|k32,48.79435511384218
+Mean Teacher,milk10k_clinico|ham|k100,52.888890978904456
+Mean Teacher,mean,49.58178640589302
+Pseudo-Label,bcn20000|imagenet|k16,43.92952618542271
+Pseudo-Label,bcn20000|imagenet|k32,50.09372870141103
+Pseudo-Label,bcn20000|imagenet|k100,54.014545468940085
+Pseudo-Label,bcn20000|ham|k16,45.75492312154487
+Pseudo-Label,bcn20000|ham|k32,51.99959023110258
+Pseudo-Label,bcn20000|ham|k100,53.83024915349417
+Pseudo-Label,milk10k|imagenet|k16,42.99693652894957
+Pseudo-Label,milk10k|imagenet|k32,49.264858416813205
+Pseudo-Label,milk10k|imagenet|k100,55.21920815632965
+Pseudo-Label,milk10k|ham|k16,45.78850078704893
+Pseudo-Label,milk10k|ham|k32,51.95210105839969
+Pseudo-Label,milk10k|ham|k100,57.57132286130155
+Pseudo-Label,milk10k_clinico|imagenet|k16,42.153703292433136
+Pseudo-Label,milk10k_clinico|imagenet|k32,46.12727994572985
+Pseudo-Label,milk10k_clinico|imagenet|k100,50.931574453511416
+Pseudo-Label,milk10k_clinico|ham|k16,42.508146871892144
+Pseudo-Label,milk10k_clinico|ham|k32,48.236015200911524
+Pseudo-Label,milk10k_clinico|ham|k100,50.2688990667378
+Pseudo-Label,mean,49.035617194554106
+Noisy Student,bcn20000|imagenet|k16,43.69316903255105
+Noisy Student,bcn20000|imagenet|k32,50.05190304855516
+Noisy Student,bcn20000|imagenet|k100,55.0780213336064
+Noisy Student,bcn20000|ham|k16,45.77546287906019
+Noisy Student,bcn20000|ham|k32,50.50890804963362
+Noisy Student,bcn20000|ham|k100,55.661497291179465
+Noisy Student,milk10k|imagenet|k16,45.33547969150316
+Noisy Student,milk10k|imagenet|k32,51.002912726482386
+Noisy Student,milk10k|imagenet|k100,56.27394850921736
+Noisy Student,milk10k|ham|k16,46.706227974155816
+Noisy Student,milk10k|ham|k32,52.38952001211858
+Noisy Student,milk10k|ham|k100,57.42011878840568
+Noisy Student,milk10k_clinico|imagenet|k16,41.88089514137242
+Noisy Student,milk10k_clinico|imagenet|k32,46.93155659178176
+Noisy Student,milk10k_clinico|imagenet|k100,51.83134981196446
+Noisy Student,milk10k_clinico|ham|k16,42.80439878023882
+Noisy Student,milk10k_clinico|ham|k32,47.79019048559931
+Noisy Student,milk10k_clinico|ham|k100,51.757497302957844
+Noisy Student,mean,49.60516985835463
+UDA,bcn20000|imagenet|k16,44.6102908893188
+UDA,bcn20000|imagenet|k32,51.35249758666563
+UDA,bcn20000|imagenet|k100,54.00848608021924
+UDA,bcn20000|ham|k16,47.20288462589887
+UDA,bcn20000|ham|k32,51.600808310993195
+UDA,bcn20000|ham|k100,56.024242694071766
+UDA,milk10k|imagenet|k16,45.55060736467039
+UDA,milk10k|imagenet|k32,50.56551637654528
+UDA,milk10k|imagenet|k100,54.46349296924912
+UDA,milk10k|ham|k16,44.61128376571628
+UDA,milk10k|ham|k32,50.46668863817484
+UDA,milk10k|ham|k100,56.10444116891584
+UDA,milk10k_clinico|imagenet|k16,41.030171728148694
+UDA,milk10k_clinico|imagenet|k32,46.43323651643582
+UDA,milk10k_clinico|imagenet|k100,50.30306455118453
+UDA,milk10k_clinico|ham|k16,42.669612271377105
+UDA,milk10k_clinico|ham|k32,47.56570932537723
+UDA,milk10k_clinico|ham|k100,51.9069169943293
+UDA,mean,49.24833065873844
+FixMatch,bcn20000|imagenet|k16,46.21550592545212
+FixMatch,bcn20000|imagenet|k32,51.33658708941671
+FixMatch,bcn20000|imagenet|k100,55.80522308109587
+FixMatch,bcn20000|ham|k16,47.83426690399519
+FixMatch,bcn20000|ham|k32,51.76091746588779
+FixMatch,bcn20000|ham|k100,56.338702998039665
+FixMatch,milk10k|imagenet|k16,42.63257442058051
+FixMatch,milk10k|imagenet|k32,49.46440339056728
+FixMatch,milk10k|imagenet|k100,56.330731474712344
+FixMatch,milk10k|ham|k16,43.87193503388592
+FixMatch,milk10k|ham|k32,51.02131020265686
+FixMatch,milk10k|ham|k100,57.28042399214927
+FixMatch,milk10k_clinico|imagenet|k16,41.224405023940776
+FixMatch,milk10k_clinico|imagenet|k32,47.288974597090224
+FixMatch,milk10k_clinico|imagenet|k100,50.87312349752689
+FixMatch,milk10k_clinico|ham|k16,40.53063758208031
+FixMatch,milk10k_clinico|ham|k32,47.43304198691983
+FixMatch,milk10k_clinico|ham|k100,52.02748330073173
+FixMatch,mean,49.4039026648183
+FlexMatch,bcn20000|imagenet|k16,44.84088788166321
+FlexMatch,bcn20000|imagenet|k32,50.74887574086123
+FlexMatch,bcn20000|imagenet|k100,52.949892219607726
+FlexMatch,bcn20000|ham|k16,45.47689109753869
+FlexMatch,bcn20000|ham|k32,48.93907962242163
+FlexMatch,bcn20000|ham|k100,54.28439227253691
+FlexMatch,milk10k|imagenet|k16,41.84160075872834
+FlexMatch,milk10k|imagenet|k32,47.22834155947653
+FlexMatch,milk10k|imagenet|k100,54.47832326305875
+FlexMatch,milk10k|ham|k16,44.044778355166535
+FlexMatch,milk10k|ham|k32,49.32583393596913
+FlexMatch,milk10k|ham|k100,54.91836699531723
+FlexMatch,milk10k_clinico|imagenet|k16,40.47961705294633
+FlexMatch,milk10k_clinico|imagenet|k32,45.68623068766342
+FlexMatch,milk10k_clinico|imagenet|k100,48.83366783242114
+FlexMatch,milk10k_clinico|ham|k16,41.61681995350155
+FlexMatch,milk10k_clinico|ham|k32,45.341161723735944
+FlexMatch,milk10k_clinico|ham|k100,50.17648063332741
+FlexMatch,mean,47.845068976996764
+DebiasMatch,bcn20000|imagenet|k16,44.82127580734743
+DebiasMatch,bcn20000|imagenet|k32,50.52593110090576
+DebiasMatch,bcn20000|imagenet|k100,54.79876101510755
+DebiasMatch,bcn20000|ham|k16,46.4815713934603
+DebiasMatch,bcn20000|ham|k32,51.67697928635762
+DebiasMatch,bcn20000|ham|k100,55.717336999396764
+DebiasMatch,milk10k|imagenet|k16,42.63018658657868
+DebiasMatch,milk10k|imagenet|k32,49.22602928217186
+DebiasMatch,milk10k|imagenet|k100,53.95312476207412
+DebiasMatch,milk10k|ham|k16,43.62208421094228
+DebiasMatch,milk10k|ham|k32,49.65942571114316
+DebiasMatch,milk10k|ham|k100,57.43735504139416
+DebiasMatch,milk10k_clinico|imagenet|k16,40.69355858080918
+DebiasMatch,milk10k_clinico|imagenet|k32,45.86370752076294
+DebiasMatch,milk10k_clinico|imagenet|k100,50.15074593797132
+DebiasMatch,milk10k_clinico|ham|k16,40.280962952717786
+DebiasMatch,milk10k_clinico|ham|k32,45.846778816199375
+DebiasMatch,milk10k_clinico|ham|k100,50.75385134983831
+DebiasMatch,mean,48.563314797509925
+DST,bcn20000|imagenet|k16,46.005234212359554
+DST,bcn20000|imagenet|k32,51.293858505646384
+DST,bcn20000|imagenet|k100,49.767033260145595
+DST,bcn20000|ham|k16,45.65553541324876
+DST,bcn20000|ham|k32,51.762422499354194
+DST,bcn20000|ham|k100,50.95973907862641
+DST,milk10k|imagenet|k16,46.19647849940395
+DST,milk10k|imagenet|k32,48.72391846304822
+DST,milk10k|imagenet|k100,45.03761991134998
+DST,milk10k|ham|k16,45.47557055449079
+DST,milk10k|ham|k32,50.00650404062358
+DST,milk10k|ham|k100,50.97453660271482
+DST,milk10k_clinico|imagenet|k16,42.28796838631918
+DST,milk10k_clinico|imagenet|k32,46.19956942166723
+DST,milk10k_clinico|imagenet|k100,46.41763822094011
+DST,milk10k_clinico|ham|k16,41.391270092799324
+DST,milk10k_clinico|ham|k32,46.036084909077736
+DST,milk10k_clinico|ham|k100,49.59825571516073
+DST,mean,47.4327354326098
+Self-Tuning,bcn20000|imagenet|k16,42.36227152532813
+Self-Tuning,bcn20000|imagenet|k32,47.59896708129325
+Self-Tuning,bcn20000|imagenet|k100,51.86298510103152
+Self-Tuning,bcn20000|ham|k16,43.3036907043349
+Self-Tuning,bcn20000|ham|k32,48.45272661319
+Self-Tuning,bcn20000|ham|k100,52.45318331563226
+Self-Tuning,milk10k|imagenet|k16,43.84794441261123
+Self-Tuning,milk10k|imagenet|k32,48.214325634084815
+Self-Tuning,milk10k|imagenet|k100,55.46688490644326
+Self-Tuning,milk10k|ham|k16,44.85612102770807
+Self-Tuning,milk10k|ham|k32,50.03202929534423
+Self-Tuning,milk10k|ham|k100,54.970163640315356
+Self-Tuning,milk10k_clinico|imagenet|k16,40.83287617316394
+Self-Tuning,milk10k_clinico|imagenet|k32,46.566719645926774
+Self-Tuning,milk10k_clinico|imagenet|k100,51.44259643160577
+Self-Tuning,milk10k_clinico|ham|k16,41.26761370716511
+Self-Tuning,milk10k_clinico|ham|k32,45.79869493456627
+Self-Tuning,milk10k_clinico|ham|k100,51.053134852107256
+Self-Tuning,mean,47.799051611214004
+SSL mean,bcn20000|imagenet|k16,44.84853978107711
+SSL mean,bcn20000|imagenet|k32,50.55366559195844
+SSL mean,bcn20000|imagenet|k100,53.67321651576448
+SSL mean,bcn20000|ham|k16,46.34418248391064
+SSL mean,bcn20000|ham|k32,51.11218476588464
+SSL mean,bcn20000|ham|k100,54.58454711097533
+SSL mean,milk10k|imagenet|k16,44.021331057148316
+SSL mean,milk10k|imagenet|k32,49.103820776774484
+SSL mean,milk10k|imagenet|k100,53.72425548596155
+SSL mean,milk10k|ham|k16,45.34375078408514
+SSL mean,milk10k|ham|k32,50.70499524609274
+SSL mean,milk10k|ham|k100,55.54763442993288
+SSL mean,milk10k_clinico|imagenet|k16,41.699194973424746
+SSL mean,milk10k_clinico|imagenet|k32,46.70109240547179
+SSL mean,milk10k_clinico|imagenet|k100,50.30241728214551
+SSL mean,milk10k_clinico|ham|k16,42.00473305276192
+SSL mean,milk10k_clinico|ham|k32,47.228948810864566
+SSL mean,milk10k_clinico|ham|k100,51.334177919161185
+SSL mean,mean,48.82403824852197

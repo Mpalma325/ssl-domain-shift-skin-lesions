@@ -1,0 +1,7 @@
+comparison,target,diff,half_width,significant,positive_seeds,n_seeds
+"FlexMatch, true composition - FlexMatch",milk10k,1.9720419144718206,3.438935143891933,False,4,5
+"FlexMatch, true composition - ERM",milk10k,-2.2807936614569955,4.18539672426919,False,1,5
+"FlexMatch, true composition - ERM",bcn20000,4.904828479672726,2.283438523762509,True,5,5
+SimPro - ERM,milk10k,-1.915184656826905,3.88179351932275,False,1,5
+SimPro - ERM,milk10k_clinico,-0.5871857633057388,2.9454820096875567,False,2,5
+SimPro - FixMatch,bcn20000,-1.9971229659561516,3.0217218120645146,False,1,5

@@ -1,0 +1,7 @@
+row,balanced,natural,difference,half_width,significant,n_seeds
+ERM (%),46.998279999999994,45.42988999999999,,,,
+FixMatch (%),45.49213,43.33439,,,,
+"Natural - balanced, ERM (pp)",,,-1.5683899999999995,1.8617215584413713,False,10
+"Natural - balanced, FixMatch (pp)",,,-2.1577400000000018,1.8843883861382693,True,10
+"FixMatch - ERM, balanced (pp)",,,-1.5061499999999988,2.0311598850255934,False,10
+"FixMatch - ERM, natural (pp)",,,-2.0955000000000013,1.8562111836471364,True,10

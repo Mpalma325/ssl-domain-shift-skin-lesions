@@ -1,0 +1,4 @@
+target,jsd,mmd2,centroid_cosine
+BCN20000,0.044895,0.062346,0.775093
+MILK10k dermoscopic,0.032442,0.03823,0.849731
+MILK10k clinical,0.067916,0.111079,0.649205
