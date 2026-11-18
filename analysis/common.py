@@ -231,5 +231,5 @@ def save(fig, name):
 def save_table(df, name, **kw):
     os.makedirs(TABLES, exist_ok=True)
     path = os.path.join(TABLES, name + ".csv")
-    df.to_csv(path, index=False, **kw)
+    df.to_csv(path, index=False, lineterminator="\n", **kw)
     print(f"  -> tables/{name}.csv")

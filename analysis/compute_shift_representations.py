@@ -91,7 +91,7 @@ def main():
                          **{f"centroid_cosine_{c}": v for c, v in zip(S.CLASSES, cos)},
                          jsd_marginal=jsd_bits(fa, fb), mmd2_marginal=S.mmd2(ma, mb, gamma)))
     out = pd.DataFrame(rows).round(6)
-    out.to_csv(args.out, index=False)
+    out.to_csv(args.out, index=False, lineterminator="\n")
     print(out.T.to_string())
     print(f"-> {args.out}")
 

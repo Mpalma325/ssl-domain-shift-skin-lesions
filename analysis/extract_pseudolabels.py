@@ -66,7 +66,7 @@ def main():
             rows.append(dict(run_id=r.run_id, init=r.init, target=r.target, k=r.k, method=r.method, seed=r.seed,
                              epoch=ep + 1, pl_accuracy=acc, pl_ratio=ratio, val_ba=val.get(ep, np.nan)))
     out = pd.DataFrame(rows).sort_values(["method", "init", "target", "k", "seed", "epoch"])
-    out.to_csv(args.out, index=False)
+    out.to_csv(args.out, index=False, lineterminator="\n")
     print(f"{out.run_id.nunique()} runs, {len(out)} rows -> {args.out} ({missing} runs without a log)")
 
 

@@ -106,7 +106,7 @@ def main():
             rows.append(dict(target=target, **{"class": c}, n_per_domain=n_used[c],
                              mmd2_mean=round(v.mean(), 6), mmd2_sd=round(v.std(ddof=1), 6)))
     out = pd.DataFrame(rows)
-    out.to_csv(args.out, index=False)
+    out.to_csv(args.out, index=False, lineterminator="\n")
     print(out.to_string(index=False))
     print(f"-> {args.out}")
 
