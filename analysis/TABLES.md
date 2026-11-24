@@ -99,3 +99,30 @@ Run a script from the repository root, e.g. `python analysis/tab_ssl_overall.py`
 | `tab:control_lesion` | `tab_controls_main.py` | common.runs(), common.predictions(), data/splits/bcn20000.csv (lesion_id) | yes (2.48; 2.15 +- 0.51*) |
 | `tab:control_accuracy` | `tab_controls_main.py` | common.design() | yes, 8 cells and asterisks |
 | `tab:control_epoch` | `tab_controls_main.py` | results/val_curves.csv, results/runs.csv | yes, 20 cells |
+
+## Chapter 5 and appendix: Study 2
+
+Inputs are in `results/study2/` unless stated.
+
+| Label | Script | Inputs | Matches the thesis |
+|---|---|---|---|
+| `tab:e2_mesa`, `tab:e2_mesa_ba_app`, `tab:e2_mesa_dif_app` | `tab_expert_combination.py` | expert_runs.csv, predictions_experts_*, source_models.npz, results/predictions_*.npz | yes |
+| `tab:app_e2_contribucion`, `tab:e2_brecha_mesa`, `tab:app_e2_lambda_t` | `tab_expert_contribution.py` | same | yes |
+| `tab:e2_reglas` | `tab_combination_rules.py` (about 5 min) | same | yes except gradient boosting on BCN20000: 49.76 (thesis 49.7); the boosted trees change with inputs equal to 1e-6 |
+| `tab:e2_errores`, `tab:e2_blind_spot`, `tab:e2_churn` | `tab_expert_errors.py` | same, pacs_shared_errors.csv | yes |
+| `tab:e2_alumnos`, `tab:app_e2_mel_alumnos` | `tab_students.py` | student_runs.csv, predictions_students_*, teacher_outputs_*, expert_runs.csv | yes |
+| `tab:e2_ssl_alumno` | `tab_student_ssl.py` | student_runs.csv, predictions_students_* | yes |
+| `tab:e2_piso_techo`, `tab:app_e2_escalera` | `tab_clinical_student.py` | student_runs.csv, predictions_students_milk10k_clinico.npz, teacher_outputs_* | yes; bootstrap bounds of the ladder within 0.4 points (order of the lesion index) |
+| `tab:e2_pares` | `tab_pairs.py` | student_runs.csv, predictions_students_milk10k_clinico.npz | yes except "All lesions" 6.250 (thesis +6.2) |
+| `tab:e2_lfm_mallya` | `tab_lfm_mallya.py` | clinical_views_milk10k.npz, predictions of the clinical ERM and student | yes |
+| `tab:app_e2_variantes_lfm` | `tab_lfm_variants.py` | clinical_views_milk10k.npz, midas_metrics*.csv | yes except three values rounded twice in the thesis: LFM + ERM on MIDAS 30.3 (thesis 30.4), translator ResNet-50 + ERM 49.5 (49.6), 50 % safest pairs alone 50.3 (50.4) |
+| `tab:e2_robusta_clinica`, `tab:e2_robusta_derm`, `tab:app_e2_robusta_v1` | `tab_degradation_tuned.py` | clinical_views_*.npz, midas_metrics*.csv | yes |
+| `tab:e2_traits_source`, `tab:e2_traits_space` and their `_app` versions, `tab:e2_traits_relative_app` | `tab_selection_traits.py` | selection_proxy_traits.csv, selection_proxy_oracle_traits.csv | source: yes; space and relative: up to 0.001 (0.1 for relative) on 15 values, rounded twice in the thesis |
+| `tab:e2_selection_proxy_app` | `tab_selection_proxy.py` | selection_proxy_draws.csv, selection_proxy_oracle.csv | 101 of 106; the other five differ by 0.01 (rounded twice in the thesis) |
+| `tab:e2_selection_controls_app` | `tab_selection_controls.py` | selection_proxy_controls.csv | yes |
+| `tab:e2_composition_milk`, `tab:e2_composition_bcn`, `tab:e2_selection_classes_app`, `tab:e2_selection_ft_app` | `tab_selection_finetune.py` | selection_finetune.npz, selection_finetune_runs.csv | yes except two values of `tab:e2_selection_ft_app` by 0.01 (5.16, thesis 5.17; 0.75, thesis 0.76), same asterisks |
+
+`selection.py` recomputes the `selection_proxy_*.csv` files from `features/selection_<target>.npz` (release v1.1):
+`python analysis/selection.py [draws|oracle|controls]`, about 40 min on one CPU thread. `compute_lfm.py` recomputes the LFM
+readings of `clinical_views_milk10k.npz` from `features/clinical_views_milk10k.npz` and compares them.
+

@@ -1,0 +1,13 @@
+target,a,b,shared,r_norm_difficulty
+MILK10k,RH,CH,Same training data,0.4664088708331319
+MILK10k,RE,CE,Same training data,0.4950505436525603
+MILK10k,RH,RE,Same architecture and initialization,0.22794919688809204
+MILK10k,CH,CE,Same architecture and initialization,0.25777575109456774
+MILK10k,RH,CE,Nothing in common,0.22552084987337034
+MILK10k,RE,CH,Nothing in common,0.167580450121645
+BCN20000,RH,CH,Same training data,0.36009613196985446
+BCN20000,RE,CE,Same training data,0.45607599150058775
+BCN20000,RH,RE,Same architecture and initialization,0.13412293599828706
+BCN20000,CH,CE,Same architecture and initialization,0.21387092806166078
+BCN20000,RH,CE,Nothing in common,0.16182320481320137
+BCN20000,RE,CH,Nothing in common,0.1111584019523879

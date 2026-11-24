@@ -21,6 +21,14 @@ a CPU in seconds.
 | `mel_sensitivity` | `fig_mel_sensitivity.py` | predictions | `e1_mel_sens80` |
 | `confidence`, `_imagenet` | `fig_confidence.py` | predictions | `e1_confianza`, `_imagenet` |
 | `pseudolabels_areas`, `pseudolabels_quality` (and `_imagenet`) | `fig_pseudolabels.py` | `results/pseudolabels_per_epoch.csv` | `e1_pseudoetiquetas_areas`, `e1_pseudoetiquetas_calidad` (and `_imagenet`) |
+| `expert_contribution_k` | `fig_expert_contribution.py` | `results/study2/` | `e2_contribucion_k` |
+| `student_pseudolabels` | `fig_student_pseudolabels.py` | `results/study2/pseudolabels_student_fixmatch.csv`, `results/pseudolabels_per_epoch.csv` | `e2_pseudoetiquetas_alumno` |
+| `lda_mallya`, `lda_lfm` | `fig_lda_clinical.py` | `features/clinical_views_milk10k.npz` (release v1.1) | `e2_lda_mallya_elipses`, `e2_lda_virtual_elipses` |
+| `midas_pairs_curve` | `fig_midas_pairs.py` | `results/study2/midas_metrics.csv` | `e2_midas_curva_lfm_1panel` |
+| `selection_proxy` | `fig_selection_proxy.py` | `results/study2/selection_proxy_*.csv` | `e2_16_selection_proxy` |
+| `label_selection` | `fig_label_selection.py` | `results/study2/selection_finetune*` | `e2_16_label_selection` |
+| `class_recall`, `_study1` | `fig_selection_class_recall.py` | `results/study2/selection_finetune*` | `e2_16_class_recall`, `_study1` |
+| `selection_controls`, `_bcn` | `fig_selection_controls.py` | `results/study2/selection_proxy_controls.csv` | `e2_16_selection_controls`, `_bcn` |
 
 `common.py` holds the data loading, the metrics on the primary test set (MILK10k
 without the 29 copies of HAM10000 images) and the figure style.

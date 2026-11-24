@@ -44,7 +44,10 @@ the labeled/unlabeled split by class (`x_u_split`).
 
 **Noisy Student** (`train/noisy_student.py`) loads a trained teacher with
 `--pretrained-teacher`. In the thesis the teacher is the ERM run of the same
-seed, initialization, target and label budget.
+seed, initialization, target and label budget. For Study 2 it also takes
+other teachers (source networks, a product of calibrated experts, up to four
+experts, a ConvNeXt-T) and the pairing controls of the clinical student, all
+off by default (see the docstring and `scripts/grid_study2.py`).
 
 **Corrections after an audit of the methods**: DebiasMatch, the loading of the
 Noisy Student teacher, the FlexMatch warm-up and the Mean Teacher EMA.

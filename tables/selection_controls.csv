@@ -1,0 +1,13 @@
+target,heuristic,control,mean,half_width,excludes_zero
+milk10k,agreement_rule,composition,3.4251019033333336,0.5921847362430943,True
+milk10k,agreement_rule,recognized,-0.7675635900000007,0.5193037868165128,True
+milk10k,mixed_rule,composition,3.3982633799999986,0.7740945991471744,True
+milk10k,mixed_rule,recognized,-1.0092490966666672,0.7781729821758809,True
+milk10k,sequential_rule,composition,2.787368266666668,0.698400264112994,True
+milk10k,sequential_rule,recognized,-1.7638584200000005,0.7512229215490608,True
+bcn20000,agreement_rule,composition,2.6813837466666683,0.789430486664359,True
+bcn20000,agreement_rule,recognized,-0.24750991999999908,0.698327864862475,False
+bcn20000,mixed_rule,composition,3.0017167099999993,0.7023692290134975,True
+bcn20000,mixed_rule,recognized,0.31968347666666663,0.6930920376233464,False
+bcn20000,sequential_rule,composition,3.3234191799999993,0.7408629571886849,True
+bcn20000,sequential_rule,recognized,0.6657993299999989,0.7325705878886015,False

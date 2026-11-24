@@ -106,6 +106,33 @@ lesions and is reduced by whole lesions, stratified by class, to the size of the
 `flexmatch_rerun` (FlexMatch without warm-up, run as its comparator on the same targets and machine) or `simpro`
 (the three targets). Columns as in `controls_pool_sisters.csv`.
 
+## study2/
+
+Outputs of Study 2 (Chapter 5 and its appendix), all in the repository. The predictions follow the layout of
+`predictions_<target>.npz`; each has a runs CSV whose `row` points into it.
+
+| File | Content |
+|---|---|
+| `expert_runs.csv`, `predictions_experts_<target>.npz` | ResNet-50 ERM (RE) and ConvNeXt-T ERM (CE) runs, ConvNeXt-T fully supervised, MME, S+T, L2-SP and Co-Tuning (`model`), k = 16, 32, 100 |
+| `student_runs.csv`, `predictions_students_<target>.npz` | Students and the runs that continue them; `trained_on` = dermoscopic or clinical images |
+| `teacher_outputs_<target>.npz` | Log-probabilities of the four-expert combination on the test set, per seed (`dermoscopic_experts`, `clinical_experts`) |
+| `source_models.npz` | Logits of the HAM10000 ResNet-50 (RH) and ConvNeXt-T (CH) on every split of each target |
+| `pacs_shared_errors.csv` | Shared-error statistics per pair of PACS classifiers (aggregates only) |
+| `pseudolabels_student_fixmatch.csv` | Pseudo-label accuracy and ratio per epoch of FixMatch started from the first student |
+| `clinical_views_<target>.npz` | Balanced log-posteriors of the HAM10000 networks reading each image: photograph, LFM, its variants, the guidance model, the degradation-tuned networks (`lp_*`), with ids, split, labels and the labeled images of each seed |
+| `midas_metrics.csv`, `midas_metrics_bootstrap.csv` | Balanced accuracy on MIDAS per model, population, seed and number of LFM pairs, and bootstrap bounds; MIDAS itself is not included |
+| `selection_sets/<target>_<selection>_s<set>.json` | The 80 labeled images of each set (`ids` relative to the target folder) |
+| `selection_finetune_runs.csv`, `selection_finetune.npz` | Test logits of the 96 ERM networks trained for one epoch on those sets (no validation logits) |
+| `selection_proxy_*.csv` | Frozen-feature proxy: balanced accuracy per draw, oracle restarts, image traits per set and the two controls (`analysis/selection.py` recomputes them) |
+
+`data/splits/milk10k_pool_excluded.txt` lists the 95 MILK10k images removed from the pool by `--pool-exclude` in
+Study 2; 85 of them are copies of HAM10000 images listed in `data/milk10k_duplicates.csv`.
+
+Release [v1.1](https://github.com/Mpalma325/ssl-domain-shift-skin-lesions/releases/tag/v1.1) adds the frozen
+features read by three analysis scripts, to be placed in `features/`: `selection_<target>.npz` (ResNet-50 features in
+float16 and logits of both HAM10000 networks for every MILK10k dermoscopic or BCN20000 image) and
+`clinical_views_milk10k.npz` (features of the views of each MILK10k clinical photograph and of its dermoscopic pair).
+
 ## Reading one run
 
 ```python

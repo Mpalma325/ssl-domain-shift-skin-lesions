@@ -1,0 +1,9 @@
+analysis,model,reference,boot_low,boot_high
+robust,robust_lfm,ham_lfm,-5.4800,-0.2300
+robust,robust_photo,ham_photo,-4.1100,0.4900
+variants,ham_lfm_clean_zoom,ham_lfm,-1.9675,-0.1122
+variants,erm_lfm_clean_zoom,erm_lfm,-1.5388,0.1082
+variants,robust_v1_lfm,ham_lfm,-5.4308,-0.5202
+variants,erm_robust_v1_lfm,erm_lfm,-4.1186,-0.0888
+derm,robust_v1_derm,ham_derm,-0.2400,6.0500
+derm,robust_v2_derm,ham_derm,1.9000,7.9800

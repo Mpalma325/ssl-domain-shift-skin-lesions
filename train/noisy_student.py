@@ -3,8 +3,9 @@
 Adapted from TLlib (Baixu Chen). The ERM teacher (--pretrained-teacher, an erm.py best.pth) labels the pool
 once; the student trains on labeled CE plus soft-target CE on strong views at temperature T. Without a teacher
 the script trains ERM. Optional flags, all off by default, only change the teacher table: source ensemble or
-calibrated product of experts, center view, cross teacher, pairing controls, third expert, per-lesion mean
-and a different teacher architecture.
+calibrated product of experts, center view, cross teacher, pairing controls, third and fourth experts with a
+weight on the ERM terms, per-lesion mean, a different teacher architecture and a dump of the teacher on test.
+--labeled-sisters (BCN20000) also moves the pool images of labeled lesions to the labeled set.
 """
 import copy
 import random
@@ -388,6 +389,113 @@ def load_third_expert(path, num_classes):
     model.load_state_dict(checkpoint)
     model.eval()
     return model.to(device)
+
+
+# Four-expert teacher: log p = W log_softmax(z_t / T_t) + source BCTS [+ third BCTS] [+ W log_softmax(z_4 / T_t)],
+# renormalized. The fourth expert (--fourth-teacher, an erm.py best.pth of the target) enters like the ERM teacher,
+# without prior or BCTS. Off by default (SUPPRESS): without the flags the Namespace, RNG and teacher table are unchanged.
+FOURTH_KEYS = ('fourth_teacher', 'fourth_teacher_arch', 'erm_weight')
+
+
+def add_fourth_expert_args(parser):
+    group = parser.add_argument_group('four-expert teacher (default: off)')
+    group.add_argument('--fourth-teacher', default=argparse.SUPPRESS, type=str, metavar='CKPT',
+                       help='best.pth of a second ERM network of the target: fourth expert of the product, at T_t, '
+                            'without prior')
+    group.add_argument('--fourth-teacher-arch', default=argparse.SUPPRESS, metavar='ARCH',
+                       choices=utils.get_model_names(), help='architecture of the fourth expert (convnext_tiny_ham)')
+    group.add_argument('--erm-weight', default=argparse.SUPPRESS, type=float, metavar='W',
+                       help='weight of the ERM terms (teacher and fourth expert) in the product of experts (1 '
+                            'without the flag)')
+    group.add_argument('--teacher-test-dump', default=argparse.SUPPRESS, action='store_true',
+                       help='also runs the teacher on the test split of its root and writes teacher_test.npz: logits '
+                            'of each expert and of the combination on val, test and pool')
+    return parser
+
+
+def fourth_flags(args):
+    return {k: getattr(args, k) for k in FOURTH_KEYS if hasattr(args, k)}
+
+
+def validate_fourth_args(args):
+    f = fourth_flags(args)
+    if not f and not getattr(args, 'teacher_test_dump', False):
+        return
+    errors = []
+    if f and (getattr(args, 'teacher_combine', 'mix') != 'poe' or not getattr(args, 'source_checkpoint', None)):
+        errors.append('the four-expert flags require --teacher-combine poe and --source-checkpoint')
+    if f and not getattr(args, 'pretrained_teacher', None):
+        errors.append('the four-expert flags require --pretrained-teacher')
+    if 'fourth_teacher_arch' in f and 'fourth_teacher' not in f:
+        errors.append('--fourth-teacher-arch without --fourth-teacher')
+    if 'fourth_teacher' in f and not os.path.isfile(f['fourth_teacher']):
+        errors.append('--fourth-teacher {} does not exist'.format(f['fourth_teacher']))
+    if getattr(args, 'teacher_test_dump', False) and not (getattr(args, 'pretrained_teacher', None)
+                                                          and getattr(args, 'source_checkpoint', None)):
+        errors.append('--teacher-test-dump requires the configurable teacher (--pretrained-teacher and '
+                      '--source-checkpoint)')
+    if 'erm_weight' in f and not (math.isfinite(f['erm_weight']) and f['erm_weight'] > 0):
+        errors.append('--erm-weight must be finite and > 0')
+    if errors:
+        raise ValueError('invalid four-expert flags:\n  - ' + '\n  - '.join(errors))
+
+
+def load_fourth_expert(args, path, num_classes):
+    """ImageClassifier of --fourth-teacher-arch with the student's bottleneck, pool and finetune, built in fork_rng."""
+    arch = getattr(args, 'fourth_teacher_arch', 'convnext_tiny_ham')
+    devices = list(range(torch.cuda.device_count())) if torch.cuda.is_available() else []
+    with torch.random.fork_rng(devices=devices):
+        backbone = utils.get_model(arch, pretrained=False)
+        template = ImageClassifier(backbone, num_classes, bottleneck_dim=args.bottleneck_dim,
+                                   pool_layer=nn.Identity() if args.no_pool else None, finetune=args.finetune)
+    print('=> fourth expert {} from {}'.format(arch, path))
+    return load_classifier_checkpoint(template, path).to(device)
+
+
+# --labeled-sisters (BCN20000 only): after the split, the pool images of a lesion that already has a labeled image
+# join the labeled set with their own class, which must be the class of the lesion. The configurable teacher is
+# still calibrated and measured on the k per class. Lesions from <root>/split_manifest.csv. Consumes no RNG.
+SISTERS_JSON = 'labeled_sisters.json'
+
+
+def add_sisters_args(parser):
+    parser.add_argument('--labeled-sisters', default=argparse.SUPPRESS, action='store_true',
+                        help='BCN20000: the pool images of labeled lesions move to the labeled set')
+    return parser
+
+
+def validate_sisters_args(args):
+    if getattr(args, 'labeled_sisters', False) and args.data != 'BCN20000':
+        raise ValueError('--labeled-sisters is only defined for BCN20000')
+
+
+def move_sisters(labeled, pools, root, log_dir):
+    """(labeled with the sisters appended, pools without them). pools: weak and strong views, same indices."""
+    import pool_modes
+    assert all(isinstance(p, Subset) and list(p.indices) == list(pools[0].indices) for p in pools), \
+        '--labeled-sisters needs the pool as a Subset, the same in both views'
+    base = labeled.dataset
+    lesions = pool_modes.lesion_ids(base.samples, root)
+    targets = base.targets
+    class_of = {}
+    for i in labeled.indices:
+        class_of.setdefault(lesions[i], set()).add(int(targets[i]))
+    sisters = [i for i in pools[0].indices if lesions[i] in class_of]
+    wrong = [i for i in sisters if class_of[lesions[i]] != {int(targets[i])}]
+    if wrong:
+        raise ValueError('{} sisters with a class other than their lesion'.format(len(wrong)))
+    out = set(sisters)
+    new = Subset(base, list(labeled.indices) + sisters)
+    new.num_classes = labeled.num_classes
+    new_pools = [Subset(p.dataset, [i for i in p.indices if i not in out]) for p in pools]
+    per_class = np.bincount([int(targets[i]) for i in sisters], minlength=labeled.num_classes).tolist()
+    record = {'n_labeled_orig': len(labeled.indices), 'n_sisters': len(sisters), 'sisters_per_class': per_class,
+              'n_lesions_labeled': len(class_of), 'n_lesions_with_sisters': len({lesions[i] for i in sisters}),
+              'pool_before': len(pools[0].indices), 'pool_after': len(new_pools[0].indices)}
+    with open(os.path.join(log_dir, SISTERS_JSON), 'w', encoding='utf-8') as fh:
+        json.dump(record, fh, indent=1)
+    print('LABELED_SISTERS ' + json.dumps(record, sort_keys=True))
+    return new, new_pools
 
 
 def add_expert(log_p, logits, log_prior, temperature, bias):
@@ -776,6 +884,12 @@ def calc_configurable_teacher_output(args, classifier, classifier_teacher, stude
     third = committee_flags(args).get('third_checkpoint')
     if third is not None:
         models.append(load_third_expert(third, num_classes))
+    fourth = fourth_flags(args)
+    i_fourth = None
+    if 'fourth_teacher' in fourth:
+        i_fourth = len(models)
+        models.append(load_fourth_expert(args, fourth['fourth_teacher'], num_classes))
+    w_erm = float(fourth.get('erm_weight', 1.0))
 
     # The only pass that consumes RNG; with the weak view teacher and source see the same crop.
     pool_outputs, pool_labels = calc_outputs(models, teacher_pool, args.batch_size, args.workers, args.print_freq)
@@ -790,6 +904,11 @@ def calc_configurable_teacher_output(args, classifier, classifier_teacher, stude
                                                        args.print_freq, prefix='Teacher on labeled set: ')
         val_outputs, val_labels = calc_outputs(models, teacher_val, args.batch_size, args.workers,
                                                args.print_freq, prefix='Teacher on validation set: ')
+        dump = getattr(args, 'teacher_test_dump', False)
+        if dump:
+            teacher_test = dataset_class(root=teacher_root, split='test', transform=val_transform)
+            test_outputs, test_labels = calc_outputs(models, teacher_test, args.batch_size, args.workers,
+                                                     args.print_freq, prefix='Teacher on test set: ')
 
         def cpu64(t):
             return t.detach().to('cpu', torch.float64)
@@ -804,6 +923,20 @@ def calc_configurable_teacher_output(args, classifier, classifier_teacher, stude
         if third is not None:
             z_third = {'val': cpu64(val_outputs[2]), 'labeled': cpu64(labeled_outputs[2]),
                        'pool': cpu64(pool_outputs[2])}
+        z_fourth = None
+        if i_fourth is not None:
+            z_fourth = {'val': cpu64(val_outputs[i_fourth]), 'labeled': cpu64(labeled_outputs[i_fourth]),
+                        'pool': cpu64(pool_outputs[i_fourth])}
+        if dump:
+            splits = splits + ('test',)
+            labels['test'] = test_labels
+            z_teacher['test'] = cpu64(test_outputs[0])
+            if z_source is not None:
+                z_source['test'] = cpu64(test_outputs[1])
+            if z_third is not None:
+                z_third['test'] = cpu64(test_outputs[2])
+            if z_fourth is not None:
+                z_fourth['test'] = cpu64(test_outputs[i_fourth])
 
         record = {
             'teacher_view': args.teacher_view, 'teacher_combine': mode,
@@ -850,8 +983,18 @@ def calc_configurable_teacher_output(args, classifier, classifier_teacher, stude
             t_source, bias = fit['T'], torch.tensor(fit['b'], dtype=torch.float64)
             record.update(T_t=t_teacher, T_s=t_source, b=fit['b'])
             source_bcts = {s: (z_source[s] - log_prior) / t_source + bias for s in splits}
-            combined = {s: combine_poe(z_teacher[s], z_source[s], log_prior, t_teacher, t_source, bias)
-                        for s in splits}
+            if fourth:
+                # W = 1 gives combine_poe up to rounding
+                combined = {}
+                for s in splits:
+                    lp = w_erm * F.log_softmax(z_teacher[s] / t_teacher, dim=1) + source_bcts[s].log_softmax(dim=1)
+                    combined[s] = lp - torch.logsumexp(lp, dim=1, keepdim=True)
+                record.update(erm_weight=w_erm, fourth_teacher=fourth.get('fourth_teacher'),
+                              fourth_teacher_arch=(getattr(args, 'fourth_teacher_arch', 'convnext_tiny_ham')
+                                                   if 'fourth_teacher' in fourth else None))
+            else:
+                combined = {s: combine_poe(z_teacher[s], z_source[s], log_prior, t_teacher, t_source, bias)
+                            for s in splits}
             if z_third is not None:
                 fit_c = fit_temperature(z_third['labeled'] - log_prior, labels['labeled'], num_classes,
                                         fit_bias=True, l2=args.bcts_l2, class_balanced=True)
@@ -860,8 +1003,27 @@ def calc_configurable_teacher_output(args, classifier, classifier_teacher, stude
                 record.update(third_checkpoint=third, T_c=t_third, b_c=fit_c['b'])
                 third_bcts = {s: (z_third[s] - log_prior) / t_third + bias_c for s in splits}
                 combined = {s: add_expert(combined[s], z_third[s], log_prior, t_third, bias_c) for s in splits}
+            if z_fourth is not None:
+                for s in splits:
+                    lp = combined[s] + w_erm * F.log_softmax(z_fourth[s] / t_teacher, dim=1)
+                    combined[s] = lp - torch.logsumexp(lp, dim=1, keepdim=True)
         if mode != 'none':
             teacher_output = combined['pool'].to(device=pool_outputs[0].device, dtype=torch.float32)
+        if dump:
+            box = {'test_ids': np.array(dataset_relative_paths(teacher_test, teacher_root)),
+                   'val_ids': np.array(dataset_relative_paths(teacher_val, teacher_root)),
+                   'pool_ids': np.array(dataset_relative_paths(teacher_pool, teacher_root)),
+                   'classes': np.array(classes)}
+            for s in ('val', 'test', 'pool'):
+                box[s + '_labels'] = torch.as_tensor(labels[s]).cpu().numpy()
+                box[s + '_combined'] = combined[s].numpy()
+                for name, z in (('teacher', z_teacher), ('source', z_source), ('third', z_third),
+                                ('fourth', z_fourth)):
+                    if z is not None:
+                        box['%s_%s_logits' % (s, name)] = z[s].numpy()
+            np.savez_compressed(os.path.join(args.log, 'teacher_test.npz'), **box)
+            print('TEACHER_TEST_DUMP teacher_test.npz test {} val {}'.format(len(box['test_ids']),
+                                                                             len(box['val_ids'])))
 
         # 'pool_diag' uses labels the method never sees; on 'labeled' the teacher and BCTS are in-sample.
         record['ba'] = {}
@@ -873,6 +1035,8 @@ def calc_configurable_teacher_output(args, classifier, classifier_teacher, stude
                 row['source_bcts'] = balanced_accuracy(source_bcts[s], labels[s], num_classes)
             if z_third is not None:
                 row['third_bcts'] = balanced_accuracy(third_bcts[s], labels[s], num_classes)
+            if z_fourth is not None:
+                row['fourth'] = balanced_accuracy(z_fourth[s], labels[s], num_classes)
             row['combined'] = balanced_accuracy(combined[s], labels[s], num_classes)
             record['ba']['pool_diag' if s == 'pool' else s] = row
         # Diagnostic of the soft target the loss actually sees, softmax(y_u / T_loss).
@@ -937,6 +1101,8 @@ def main(args: argparse.Namespace):
     validate_pair_args(args)
     validate_committee_args(args)
     validate_teacher_arch_args(args)
+    validate_fourth_args(args)
+    validate_sisters_args(args)
     utils.validar_soporte(args)
 
     if args.seed is not None:
@@ -984,6 +1150,11 @@ def main(args: argparse.Namespace):
                           **utils.kw_muestreo(args),
                           **utils.kw_pool_exclude(args))
 
+    teacher_labeled_dataset = labeled_train_dataset  # the teacher is calibrated on the k per class
+    if getattr(args, 'labeled_sisters', False):
+        labeled_train_dataset, (weak_augmented_unlabeled_dataset, strong_augmented_unlabeled_dataset) = move_sisters(
+            labeled_train_dataset, [weak_augmented_unlabeled_dataset, strong_augmented_unlabeled_dataset], args.root,
+            args.log)
     strong_augmented_unlabeled_dataset = utils.convert_dataset(strong_augmented_unlabeled_dataset)
     utils.guardar_ids_etiquetados(labeled_train_dataset, args.root, args.log)
     utils.guardar_ids_validacion(val_dataset, args.root, args.log)
@@ -1062,7 +1233,7 @@ def main(args: argparse.Namespace):
             # train() indexes this pool by idx_u: strong_augmented_unlabeled_dataset.dataset
             teacher_output = calc_configurable_teacher_output(
                 args, classifier, classifier_teacher, strong_augmented_unlabeled_dataset.dataset,
-                labeled_train_dataset, val_dataset, weak_augment, val_transform)
+                teacher_labeled_dataset, val_dataset, weak_augment, val_transform)
 
     if args.pretrained_teacher and pair_flags(args):
         # The photo teacher reuses the flags without --teacher-root; its teacher_calib.json goes to <log>/photo_teacher/
@@ -1075,7 +1246,7 @@ def main(args: argparse.Namespace):
             photo_teacher = load_classifier_checkpoint(classifier, args.photo_teacher).to(device)
             return calc_configurable_teacher_output(
                 photo_args, classifier, photo_teacher, strong_augmented_unlabeled_dataset.dataset,
-                labeled_train_dataset, val_dataset, weak_augment, val_transform)
+                teacher_labeled_dataset, val_dataset, weak_augment, val_transform)
         teacher_output = apply_pair_flags(args, teacher_output, photo_output)
 
     if args.pretrained_teacher and 'teacher_lesion_mean' in committee_flags(args):
@@ -1350,5 +1521,7 @@ if __name__ == '__main__':
     add_pair_args(parser)
     add_committee_args(parser)
     add_teacher_arch_args(parser)
+    add_fourth_expert_args(parser)
+    add_sisters_args(parser)
     args = parser.parse_args()
     main(args)

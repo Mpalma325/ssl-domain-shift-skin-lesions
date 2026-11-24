@@ -1,0 +1,11 @@
+group,rule,MILK10k,BCN20000
+Sum,Sum of log-probabilities,59.794700914820886,53.576052754615546
+Fixed rules,"Power mean, q=1",59.60782322683475,53.19948026699776
+Fixed rules,"Power mean, q=-0.5",59.00798118985991,53.818800764333446
+Fixed rules,Weighted majority vote,60.02104585959573,52.77184202320014
+Fixed rules,Median,59.6045207563573,52.19947221322484
+Fitted weights for the sum,One weight per expert,59.13926506095513,53.576052754615546
+Fitted weights for the sum,One weight per expert and class,59.76960207596504,53.186239509464485
+Classifiers on the 20 probabilities,Logistic regression,58.559476740892954,52.29028511046613
+Classifiers on the 20 probabilities,Gradient boosting,51.54754573775134,49.76089920524385
+Upper bound,Expert oracle,81.02457615933295,79.70686971718405

@@ -11,17 +11,26 @@ and clinical images of the same lesions), with 16, 32 and 100 labeled images
 per class. Each model starts either from ImageNet or from a ResNet-50 already
 fine-tuned on HAM10000.
 
+Study 2 reuses the HAM10000 networks: a combination of four experts (ResNet-50
+and ConvNeXt-T trained on HAM10000 or on the 80 labeled target images),
+students distilled from it, ways to read MILK10k clinical photographs through
+the dermoscopic networks (LFM, the guidance model of Mallya and Hamarneh, a
+network tuned on simulated camera degradations) and the selection of the
+labeled images.
+
 ## Contents
 
 | Path | What it is |
 |---|---|
-| `train/` | The eleven trainers (`erm.py` and one per SSL method), `simpro.py` (used only in a control experiment) and their shared `utils.py` |
+| `train/` | The eleven trainers (`erm.py` and one per SSL method), `simpro.py` (used only in a control experiment), the Study 2 trainers and their shared `utils.py` |
 | `tllib/` | Modified copy of [TLlib](https://github.com/thuml/Transfer-Learning-Library); changes in `docs/TLLIB_CHANGES.md` |
 | `data/` | Lesion-level splits with ISIC image identifiers (no images), see `data/README.md` |
 | `scripts/prepare_data.py` | Builds the image folders from the official downloads |
 | `scripts/verify_setup.py` | Checks versions, data and labeled subsets against the thesis |
 | `scripts/grid.py` | The experimental grid and the exact command of every run |
-| `results/` | Predictions of the 1020 trained models and the smaller result tables, see `results/README.md` |
+| `scripts/grid_study2.py` | The commands of the Study 2 networks trained with `train/` |
+| `scripts/extract_features.py`, `scripts/midas_inference.py` | Frozen features of the HAM10000 networks; inference on a local copy of MIDAS |
+| `results/` | Predictions of the 1020 trained models of Study 1, those of Study 2 (`results/study2/`) and the smaller result tables, see `results/README.md` |
 | `analysis/` | Scripts behind every data figure and table of the thesis, see `analysis/README.md` and `analysis/TABLES.md` |
 
 ## Reproducing the figures and tables
@@ -36,6 +45,12 @@ python analysis/tab_ssl_overall.py
 ```
 
 Figures go to `figures/` and tables to `tables/`, as CSV.
+
+Study 2 reads `results/study2/` (in the repository). Three scripts also need the
+frozen features of release
+[v1.1](https://github.com/Mpalma325/ssl-domain-shift-skin-lesions/releases/tag/v1.1)
+in `features/`: `selection.py --recompute` (`selection_<target>.npz`),
+`compute_lfm.py` and `fig_lda_clinical.py` (`clinical_views_milk10k.npz`).
 
 The analysis also needs `pandas` (3.0.1 was used).
 
@@ -111,6 +126,46 @@ The control experiments of the appendix are not in the grid. Each one is the com
 - **Clinical crop ablation** (`clinical_crop_ablation_runs.csv`): `grid.py show <s> ham milk10k_clinico 16 erm` with `--iters-per-epoch 200`; for crop scale [0.2, 1.0] also drop `--train-resizing lesion_preserving`.
 - **Labeled subset x training seed** (`factorial_runs.csv`): `grid.py show <t> ham <milk10k|bcn20000> 16 <erm|fixmatch>` plus `--subset-seed <s>`, where `--subset-seed` (0-2) picks the labeled images and `--seed` (0-2) sets the training seed; the 12 `replica` = 1 runs repeat the same command.
 - **Repetitions and machines** (`repetitions.npz`, `controls_repetitions.npz`, `controls_gpu.csv`): the unchanged `grid.py show` command (seed 0, or seeds 0-2 for `controls_gpu.csv`) run again, on the same machine or on other machines.
+
+### Study 2
+
+The runs trained with `train/` (ERM and students, ConvNeXt-T ERM, L2-SP,
+Co-Tuning, clinical students, label lists) are listed by `scripts/grid_study2.py`,
+with the same interface as `grid.py` and outputs in
+`outputs/study2/<name>/<target>/k<k>/s<seed>/`:
+
+```bash
+python scripts/grid_study2.py list                       # all 365 commands
+python scripts/grid_study2.py show 0 milk10k 16 convnext_student
+python scripts/grid_study2.py run  0 milk10k 16 erm_teacher
+```
+
+They need `checkpoints/ham10000_convnext.pth`, the HAM10000 ConvNeXt-T, and some
+take an earlier run as teacher or start (`erm_teacher` and `convnext_erm`
+first). The other networks have their own trainers:
+
+```bash
+python train/convnext_source.py                                            # HAM10000 ConvNeXt-T
+cd train
+python mme.py --target milk10k --seed 0                                    # MME
+python source_target.py --target milk10k --seed 0                          # S+T
+python short_finetune.py --target milk10k --labeled-list ../results/study2/selection_sets/milk10k_*_s*.json
+cd ..
+python train/camera_simulator.py --version 2 --ham checkpoints/ham10000_source.pth --out outputs/camera_simulator_v2
+python train/robust_finetune.py --simulator 2 --mode degraded --epochs 2 --out outputs/robust_v2
+python train/feature_translator.py --seed 1 --out features/translator_s1.npz
+python train/mallya.py latents --seed 0 && python train/mallya.py guided --seed 0
+```
+
+The docstring of each script gives the thesis settings. LFM itself is a ridge
+regression on frozen features (`analysis/compute_lfm.py`, from
+`scripts/extract_features.py`). The labeled sets of the selection study are in
+`results/study2/selection_sets/`; the selection code that chose them is not
+included.
+
+MIDAS (external validation) is not redistributed. `scripts/midas_inference.py`
+applies the trained networks to a local download; the repository keeps only the
+aggregated metrics (`results/study2/midas_metrics*.csv`).
 
 ## License
 

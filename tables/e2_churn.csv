@@ -1,0 +1,5 @@
+target,system,churn_pct,n_pairs
+MILK10k,Four-expert combination,18.485875706214692,10
+MILK10k,RE,51.141242937853114,10
+BCN20000,Four-expert combination,23.94498280712723,10
+BCN20000,RE,56.78024382619568,10
